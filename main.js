@@ -4,7 +4,7 @@ var gameData = {
     goldPerClickCost: 10,
     minerCost: 50,
     minerCount: 0,
-    update: 1
+    update: 1.1
 }
 
 function mineGold() {
@@ -26,7 +26,7 @@ function buyMiner() {
     if (gameData.gold >= gameData.minerCost) {
         gameData.gold -= gameData.minerCost
         gameData.minerCount += 1
-        gameData.minerCost *= 1.75
+        gameData.minerCost *= 1.8
         document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + gameData.minerCount + "/s)"
         document.getElementById("minerBuy").innerHTML = "Buy Miner (Currently have " + gameData.minerCount + ") Cost: " + gameData.minerCost + " Gold"
     }

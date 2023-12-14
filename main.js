@@ -9,7 +9,7 @@ var gameData = {
     depthMultiply: 1,
     hiringManagers: 0,
     managersCost: 10000000,
-    update: 1.15
+    update: 1.16
 }
 
 function mineGold() {
@@ -70,7 +70,7 @@ function wipeSave() {
         depthMultiply: 1,
         hiringManagers: 0,
         managersCost: 10000000,
-        update: 1.15
+        update: 1.16
     }
 }
 

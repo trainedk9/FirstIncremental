@@ -33,7 +33,7 @@ function buyMiner() {
 }
 
 var mainGameLoop = window.setInterval(function () {
-    for (let i = 0; i < minerCount; i++) {
+    for (let i = 0; i < gameData.minerCount; i++) {
         mineGold()
     }
 }, 1000)

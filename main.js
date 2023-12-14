@@ -4,6 +4,7 @@ var gameData = {
     goldPerClickCost: 10,
     minerCost = 50,
     minerCount = 0,
+    update = 1
 }
 
 function mineGold() {
@@ -43,5 +44,7 @@ var saveGameLoop = window.setInterval(function () {
 
 var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
 if (savegame !== null) {
-    gameData = savegame
+    if (savegame.update == gameData.update) {
+        gameData = savegame
+    } else if (typeof savegame.dwarves !== "undefined") gameData.dwarves = savegame.dwarves;
 }

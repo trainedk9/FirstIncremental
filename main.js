@@ -2,9 +2,9 @@ var gameData = {
     gold: 0,
     goldPerClick: 1,
     goldPerClickCost: 10,
-    minerCost = 50,
-    minerCount = 0,
-    update = 1
+    minerCost: 50,
+    minerCount: 0,
+    update: 1
 }
 
 function mineGold() {

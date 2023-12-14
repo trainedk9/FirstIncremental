@@ -7,7 +7,7 @@ var gameData = {
     depthCost: 125,
     depth: 1,
     depthMultiply: 1,
-    update: 1.13
+    update: 1.14
 }
 
 function mineGold() {
@@ -53,7 +53,10 @@ function wipeSave() {
         goldPerClickCost: 10,
         minerCost: 50,
         minerCount: 0,
-        update: 1.13
+        depthCost: 125,
+        depth: 1,
+        depthMultiply: 1,
+        update: 1.14
     }
 }
 

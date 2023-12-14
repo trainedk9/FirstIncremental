@@ -78,6 +78,7 @@ var mainGameLoop = window.setInterval(function () {
     for (let i = 0; i < gameData.minerCount; i++) {
         mineGold()
     }
+    gameData.minerCount += hiringManagers
 }, 1000)
 
 var saveGameLoop = window.setInterval(function () {

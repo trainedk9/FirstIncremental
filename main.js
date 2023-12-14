@@ -78,7 +78,9 @@ var mainGameLoop = window.setInterval(function () {
     for (let i = 0; i < gameData.minerCount; i++) {
         mineGold()
     }
-    gameData.minerCount += hiringManagers
+    gameData.minerCount += gameData.hiringManagers
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) * gameData.depthMultiply + "/s)"
+    document.getElementById("minerBuy").innerHTML = "Buy Miner (Currently have " + gameData.minerCount + ") Cost: " + gameData.minerCost + " Gold"
 }, 1000)
 
 var saveGameLoop = window.setInterval(function () {

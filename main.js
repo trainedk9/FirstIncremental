@@ -4,12 +4,15 @@ var gameData = {
     goldPerClickCost: 10,
     minerCost: 50,
     minerCount: 0,
-    update: 1.12
+    depthCost: 125,
+    depth: 1,
+    depthMultiply: 1,
+    update: 1.13
 }
 
 function mineGold() {
     gameData.gold += gameData.goldPerClick
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) + "/s)"
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) * gameData.depthMultiply + "/s)"
 }
 
 function buyGoldPerClick() {
@@ -17,7 +20,7 @@ function buyGoldPerClick() {
         gameData.gold -= gameData.goldPerClickCost
         gameData.goldPerClick += 1
         gameData.goldPerClickCost *= 2
-        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) + "/s)"
+        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) * gameData.depthMultiply + "/s)"
         document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.goldPerClick + ") Cost: " + gameData.goldPerClickCost + " Gold"
     }
 }
@@ -27,8 +30,19 @@ function buyMiner() {
         gameData.gold -= gameData.minerCost
         gameData.minerCount += 1
         gameData.minerCost *= 3
-        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) + "/s)"
+        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) * gameData.depthMultiply + "/s)"
         document.getElementById("minerBuy").innerHTML = "Buy Miner (Currently have " + gameData.minerCount + ") Cost: " + gameData.minerCost + " Gold"
+    }
+}
+
+function buyDepthUpgrade() {
+    if (gameData.gold >= gameData.depthCost) {
+        gameData.gold -= gameData.depthCost
+        gameData.depth += 1
+        gameData.depthMultiply *= 2
+        gameData.depthCost *= 4
+        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) * gameData.depthMultiply + "/s)"
+        document.getElementById("depthBuy").innerHTML = "Go Deeper (Currently Multiplying Gold x" + gameData.depthMultiply + ") Cost: " + gameData.depthCost + " Gold"
     }
 }
 
@@ -39,7 +53,7 @@ function wipeSave() {
         goldPerClickCost: 10,
         minerCost: 50,
         minerCount: 0,
-        update: 1.12
+        update: 1.13
     }
 }
 

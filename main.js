@@ -7,7 +7,9 @@ var gameData = {
     depthCost: 125,
     depth: 1,
     depthMultiply: 1,
-    update: 1.14
+    hiringManagers: 0,
+    managersCost: 10000000,
+    update: 1.15
 }
 
 function mineGold() {
@@ -46,6 +48,16 @@ function buyDepthUpgrade() {
     }
 }
 
+function buyManager() {
+    if (gameData.gold >= gameData.managersCost) {
+        gameData.gold -= gameData.managersCost
+        gameData.hiringManagers += 1
+        gameData.managersCost *= 20
+        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined (+" + (gameData.minerCount * gameData.goldPerClick) * gameData.depthMultiply + "/s)"
+        document.getElementById("managerBuy").innerHTML = "Buy Manager(Currently have " + gameData.hiringManagers + ") Cost: " + gameData.managersCost +" gold"
+    }
+}
+
 function wipeSave() {
     gameData = {
         gold: 0,
@@ -56,7 +68,9 @@ function wipeSave() {
         depthCost: 125,
         depth: 1,
         depthMultiply: 1,
-        update: 1.14
+        hiringManagers: 0,
+        managersCost: 10000000,
+        update: 1.15
     }
 }
 
